@@ -35,13 +35,6 @@ const ItemActivity = () => {
       </div>
       {toggle && (
         <div className={style.activityTable}>
-          <div className={style.filter}>
-            <div className={style.filterTitle}>Filter</div>
-            <div className={style.filterIcon}>
-              {' '}
-              <AiOutlineDown />{' '}
-            </div>
-          </div>
           <div className={style.tableHeader}>
             <div className={`${style.tableHeaderElement} flex-[2]`}>Event</div>
             <div className={`${style.tableHeaderElement} flex-[2]`}>Price</div>

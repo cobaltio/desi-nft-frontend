@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import AuthContext from '../contexts/AuthProvider'
+import Modal from './modal'
+import {
+  useRouter
+} from 'next/router'
 
 const style = {
   wrapper: `relative`,
@@ -17,9 +22,13 @@ const style = {
   infoIcon: `flex justify-end items-center flex-1 text-[#8a939b] text-3xl font-bold`,
 }
 
-const Hero = () => {
+const Hero = ({ openModal, setOpenModal }) => {
+  const { auth } = useContext(AuthContext);
+  const router = useRouter();
   return (
-    <div className={style.wrapper}>
+    <>
+      {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
+      <div className={style.wrapper}>
       <div className={style.container}>
         <div className={style.contentWrapper}>
           <div className={style.copyContainer}>
@@ -30,8 +39,7 @@ const Hero = () => {
               DesiNFT 
             </div>
             <div className={style.ctaContainer}>
-              <button className={style.accentedButton}>Explore</button>
-              <button className={style.button}>Create</button>
+              <button className={style.accentedButton} onClick={() => {router.push('/explore')}}>Explore</button>
             </div>
           </div>
           <div className={style.cardContainer}>
@@ -59,7 +67,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
+    
   )
 }
 

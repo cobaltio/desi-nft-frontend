@@ -3,6 +3,8 @@ import { MdRefresh } from 'react-icons/md'
 import { RiShareBoxLine } from 'react-icons/ri'
 import { FiMoreVertical } from 'react-icons/fi'
 import { GiShare } from 'react-icons/gi'
+import { useContext } from 'react'
+import AuthContext from '../../contexts/AuthProvider'
 
 const style = {
   wrapper: `flex`,
@@ -20,36 +22,14 @@ const style = {
 }
 
 const GeneralDetails = ({ selectedNft }) => {
+  
   return (
     <div className={style.wrapper}>
       <div className={style.infoContainer}>
-        <div className={style.accent}>Desi collection</div>
-        <div className={style.nftTitle}>{selectedNft?.name}</div>
+        <div className={style.nftTitle}>{selectedNft?.metadata.name}</div>
         <div className={style.otherInfo}>
           <div className={style.ownedBy}>
-            Owned by <span className={style.accent}>Mayank</span>
-          </div>
-          <div className={style.likes}>
-            <AiFillHeart className={style.likeIcon} /> 3.4K favorites
-          </div>
-        </div>
-      </div>
-      <div className={style.actionButtonsContainer}>
-        <div className={style.actionButtons}>
-          <div className={`${style.actionButton} ml-2`}>
-            <MdRefresh />
-          </div>
-          <div className={style.divider} />
-          <div className={style.actionButton}>
-            <RiShareBoxLine />
-          </div>
-          <div className={style.divider} />
-          <div className={style.actionButton}>
-            <GiShare />
-          </div>
-          <div className={style.divider} />
-          <div className={`${style.actionButton} mr-2`}>
-            <FiMoreVertical />
+            Owned by <span className={style.accent}>{ selectedNft?.owner}</span>
           </div>
         </div>
       </div>

@@ -10,18 +10,8 @@ const style = {
 const NFTImage = ({ selectedNft }) => {
   return (
     <div>
-      <div className={style.topBar}>
-        <div className={style.topBarContent}>
-          <IoMdSnow />
-          <div className={style.likesCounter}>
-            <AiOutlineHeart />
-            3.4K
-          </div>
-        </div>
-      </div>
       <div>
-        {console.log(selectedNft, '🎆')}
-        <img src={selectedNft?.image} />
+        <img src={selectedNft?.metadata.image} />
       </div>
     </div>
   )
